@@ -54,7 +54,7 @@ def register():
             flash('User already exist. Please login.')
             return redirect(url_for('login'))
         # hash and salt password for secured storage into database
-        hash_and_salted_pwd = generate_password_hash(password=request.form['password'], method=PWD_HASH_METHOD, salt_length=str(PWD_SALT_LENGTH))
+        hash_and_salted_pwd = generate_password_hash(password=request.form['password'], method=PWD_HASH_METHOD, salt_length=int(PWD_SALT_LENGTH))
         new_user = User(
             email=request.form['email'],
             password=hash_and_salted_pwd,
