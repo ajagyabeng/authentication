@@ -9,7 +9,7 @@ load_dotenv()  # take environment variables from .env.
 
 APP_SECRET_KEY = os.getenv("APP_SECRET_KEY")
 PWD_HASH_METHOD = os.getenv("PWD_HASH_METHOD")
-PWD_SALT_LENGTH = os.getenv("PWD_SALT_LENGTH")
+# PWD_SALT_LENGTH = os.getenv("PWD_SALT_LENGTH")
 
 app = Flask(__name__)
 
@@ -54,7 +54,7 @@ def register():
             flash('User already exist. Please login.')
             return redirect(url_for('login'))
         # hash and salt password for secured storage into database
-        hash_and_salted_pwd = generate_password_hash(password=request.form['password'], method=PWD_HASH_METHOD, salt_length=int(PWD_SALT_LENGTH))
+        hash_and_salted_pwd = generate_password_hash(password=request.form['password'], method=PWD_HASH_METHOD, salt_length=8)
         new_user = User(
             email=request.form['email'],
             password=hash_and_salted_pwd,
