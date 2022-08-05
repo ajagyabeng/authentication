@@ -7,13 +7,13 @@ import os
 
 load_dotenv()  # take environment variables from .env.
 
-APP_SECRET_KEY = os.getenv("APP_SECRET_KEY")
-PWD_HASH_METHOD = os.getenv("PWD_HASH_METHOD")
+# APP_SECRET_KEY = os.getenv("APP_SECRET_KEY")
+# PWD_HASH_METHOD = os.getenv("PWD_HASH_METHOD")
 # PWD_SALT_LENGTH = os.getenv("PWD_SALT_LENGTH")
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = APP_SECRET_KEY
+app.config['SECRET_KEY'] = 'kmdfrigjigijwi23953879idfskfw4t4ikgrpro4'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
