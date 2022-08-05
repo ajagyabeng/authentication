@@ -7,9 +7,9 @@ import os
 
 load_dotenv()  # take environment variables from .env.
 
-APP_SECRET_KEY = os.environ["APP_SECRET_KEY"]
-PWD_HASH_METHOD = os.environ["PWD_HASH_METHOD"]
-PWD_SALT_LENGTH = os.environ["PWD_SALT_LENGTH"]
+APP_SECRET_KEY = os.environ("APP_SECRET_KEY")
+PWD_HASH_METHOD = os.getenv("PWD_HASH_METHOD")
+PWD_SALT_LENGTH = os.getenv("PWD_SALT_LENGTH")
 
 app = Flask(__name__)
 
